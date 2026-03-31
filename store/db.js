@@ -12,8 +12,14 @@ const db = {
   _uid: 1,
   _pid: 1,
 
-  nextUserId() { return this._uid++; },
-  nextPostId() { return this._pid++; },
+  nextUserId() { 
+    this._uid = Date.now() + Math.floor(Math.random() * 1000); 
+    return this._uid; 
+  },
+  nextPostId() { 
+    this._pid = Date.now() + Math.floor(Math.random() * 1000); 
+    return this._pid; 
+  },
 
   findUserByEmail(email) {
     return this.users.find(u => u.email === email.toLowerCase().trim());

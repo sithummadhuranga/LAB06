@@ -13,7 +13,12 @@ const protect = (req, res, next) => {
   const token = authHeader.split(' ')[1];
 
   try {
-    req.user = jwt.verify(token, SECRET);
+    const decoded = jwt.verify(token, SECRET);
+    const db = require('../store/db');
+    if (!db.findUserById(decoded.id)) {
+      return res.status(401).json({ success: false, error: 'User does not exist in current memory session.' });
+    }
+    req.user = decoded;
     next();
   } catch (err) {
     const message = err.name === 'TokenExpiredError' ? 'Token expired.' : 'Invalid token.';

@@ -1,7 +1,7 @@
 <div class="post-detail-container container">
   <a href="/feed" class="btn btn--outline back-btn">← Back to Feed</a>
   
-  <article class="post-detail-card">
+  <article class="post-detail-card" data-author-id="{{post.author.id}}" data-post-id="{{post.id}}">
     {{#if post.imageUrl}}
       <div class="post-detail-img-wrap">
         <img src="{{post.imageUrl}}" alt="{{post.title}}" class="post-detail-img" />
@@ -14,6 +14,11 @@
         <div class="meta-info">
           <span class="author-name">{{post.author.username}}</span>
           <time class="post-date">{{formatDate post.createdAt}}</time>
+        </div>
+        
+        <div id="postActions" style="display: none; margin-left: auto; gap: 0.5rem;">
+          <button id="editPostBtn" class="btn btn--outline" style="padding: 0.4rem 0.8rem; font-size: 0.85rem;">Edit</button>
+          <button id="deletePostBtn" class="btn " style="padding: 0.4rem 0.8rem; font-size: 0.85rem; color: #ff4d4f; border-color: #ff4d4f;">Delete</button>
         </div>
       </div>
       
@@ -29,6 +34,32 @@
       </div>
     </div>
   </article>
+</div>
+
+<!-- Edit Post Modal -->
+<div id="editPostModal" class="modal-backdrop" style="display: none;">
+  <div class="modal-content auth-box">
+    <h2>Edit Post</h2>
+    <form id="editPostForm" class="auth-form" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="editTitle">Title</label>
+        <input type="text" id="editTitle" name="title" required value="{{post.title}}" />
+      </div>
+      <div class="form-group">
+        <label for="editContent">Content</label>
+        <textarea id="editContent" name="content" required rows="4">{{post.content}}</textarea>
+      </div>
+      <div class="form-group">
+        <label for="editImage">Replace Image (Optional)</label>
+        <input type="file" id="editImage" name="image" accept="image/png, image/jpeg, image/webp" />
+      </div>
+      <div id="editPostError" class="auth-error-msg" style="display: none;"></div>
+      <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+        <button type="submit" class="btn btn--primary" style="flex: 1;">Save Changes</button>
+        <button type="button" id="cancelEditBtn" class="btn btn--outline" style="flex: 1;">Cancel</button>
+      </div>
+    </form>
+  </div>
 </div>
 
 <script src="/js/post.js"></script>

@@ -5,7 +5,7 @@ const router = Router();
 
 router.get('/feed', (req, res) => {
   let page = Math.max(parseInt(req.query.page) || 1, 1);
-  const limit = 10;
+  const limit = 3;
   const sorted = [...db.posts].sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
   const total = sorted.length;
   const totalPages = Math.ceil(total / limit) || 1;
