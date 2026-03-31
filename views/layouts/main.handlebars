@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>{{title}} – SocialHub</title>
+  <meta name="description" content="A social media platform built with Express.js for SE3040 Lab 06." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="/feed" class="logo" aria-label="SocialHub home">
+        <span class="logo-mark" aria-hidden="true">●</span>
+        SocialHub
+      </a>
+      <nav class="header-nav" aria-label="Main navigation">
+        <a href="/feed" class="nav-link">Feed</a>
+        <a href="/api/posts" class="nav-link" target="_blank" rel="noopener noreferrer">API ↗</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="main-content">
+    {{{body}}}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p>SE3040 · Application Frameworks · Lab 06 · Built with <strong>Express.js</strong> &amp; <strong>Handlebars</strong></p>
+    </div>
+  </footer>
+</body>
+</html>

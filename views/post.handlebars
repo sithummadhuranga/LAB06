@@ -1,0 +1,34 @@
+<div class="post-detail-container container">
+  <a href="/feed" class="btn btn--outline back-btn">← Back to Feed</a>
+  
+  <article class="post-detail-card">
+    {{#if post.imageUrl}}
+      <div class="post-detail-img-wrap">
+        <img src="{{post.imageUrl}}" alt="{{post.title}}" class="post-detail-img" />
+      </div>
+    {{/if}}
+    
+    <div class="post-detail-body">
+      <div class="post-detail-meta">
+        <span class="avatar">{{upper post.author.username}}</span>
+        <div class="meta-info">
+          <span class="author-name">{{post.author.username}}</span>
+          <time class="post-date">{{formatDate post.createdAt}}</time>
+        </div>
+      </div>
+      
+      <h1 class="post-detail-title">{{post.title}}</h1>
+      <div class="post-detail-content">
+        {{post.content}}
+      </div>
+      
+      <div class="post-detail-footer">
+        <button id="likeBtn" class="badge badge--likes like-btn" data-id="{{post.id}}">
+          ❤ <span id="likeCount">{{post.likes.length}}</span> Likes
+        </button>
+      </div>
+    </div>
+  </article>
+</div>
+
+<script src="/js/post.js"></script>

@@ -1,0 +1,28 @@
+<div class="auth-container">
+  <div class="auth-box">
+    <h2>Welcome Back to SocialHub</h2>
+    <p class="auth-subtitle">Log in to view and create posts.</p>
+    
+    <form id="loginForm" class="auth-form">
+      <div class="form-group">
+        <label for="email">Email address</label>
+        <input type="email" id="email" name="email" required placeholder="you@example.com" />
+      </div>
+      
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required placeholder="••••••••" />
+      </div>
+      
+      <div id="loginError" class="auth-error-msg" style="display: none;"></div>
+      
+      <button type="submit" class="btn btn--primary auth-submit-btn">Log In</button>
+    </form>
+    
+    <p class="auth-switch">
+      Don't have an account? <a href="/register">Sign up</a>
+    </p>
+  </div>
+</div>
+
+<script src="/js/auth.js"></script>
