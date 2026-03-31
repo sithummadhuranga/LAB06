@@ -2,6 +2,7 @@
 
 **Name**: H.M.T.S.M.DISSANAYAKE  
 **Registration Number**: IT23294066  
+**Repository**: [https://github.com/sithummadhuranga/LAB06](https://github.com/sithummadhuranga/LAB06)
 
 ## Project Overview
 
